@@ -36,7 +36,7 @@ jobs:
     - name: Run Trivy vulnerability scanner
       run: trivy fs --format table -o fs-report.json .
 
-    - name: Gitleaks installation on ubuntu
+    - name: Gitleaks installation on self-hosted ubuntu server
       run: sudo apt install gitleaks -y
     - name: gitleaks scan.
       run: gitleaks detect source . -r gitleaks-report.json. 

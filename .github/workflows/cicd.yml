@@ -36,10 +36,16 @@ jobs:
         sudo apt-get update -y
         sudo apt-get install -y trivy
 
+
     - name: Run Trivy vulnerability scanner
       run: trivy fs --format table -o fs-report.json .
 
     - name: Gitleaks installation on self-hosted ubuntu server
-      run: sudo apt install gitleaks -y
+      run: |
+        wget -qO gitleaks.tar.gz https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz
+        tar -xzf gitleaks.tar.gz
+        sudo mv gitleaks /usr/local/bin/
+        sudo chmod +x /usr/local/bin/gitleaks      
+        sudo apt install gitleaks -y
     - name: gitleaks scan.
       run: gitleaks detect source . -r gitleaks-report.json. 

@@ -40,14 +40,9 @@ jobs:
     - name: Run Trivy vulnerability scanner
       run: trivy fs --format table -o fs-report.json .
 
-    - name: Gitleaks installation on self-hosted ubuntu server
-      run: |
-        # GITLEAKS_VERSION=$(curl -s "https://api.github.com/repos/gitleaks/gitleaks/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
-        # wget -qO gitleaks.tar.gz https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz
-        # # wget https://github.com/gitleaks/gitleaks/releases/download/v8.25.1/gitleaks_8.25.1_darwin_arm64.tar.gz
-        # tar -xzf gitleaks.tar.gz
-        # sudo mv gitleaks /usr/local/bin/
-        # sudo chmod +x /usr/local/bin/gitleaks      
-        sudo apt install gitleaks -y
-    - name: gitleaks scan.
-      run: gitleaks detect source . -r gitleaks-report.json. 
+    # - name: Gitleaks installation on self-hosted ubuntu server
+    #   run: |
+           
+    #     sudo apt install gitleaks -y
+    # - name: gitleaks scan.
+    #   run: gitleaks detect source . -r gitleaks-report.json. 

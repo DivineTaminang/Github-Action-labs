@@ -87,11 +87,6 @@ jobs:
       with:
         # Disabling shallow clones is recommended for improving the relevancy of reporting
         fetch-depth: 0
-    - name: Install jq
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y jq
-
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.1.0
       with:

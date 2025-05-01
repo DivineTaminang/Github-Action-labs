@@ -93,11 +93,15 @@ jobs:
       with:
         node-version: '18'
 
+    - name: Get Node.js path
+      id: node_path
+      run: echo "NODE_PATH=$(which node)" >> $GITHUB_ENV
+
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.1.0
       with:
         args: >
-          -Dsonar.nodejs.executable=node # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
+          -Dsonar.nodejs.executable=${{ env.NODE_PATH }} # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}

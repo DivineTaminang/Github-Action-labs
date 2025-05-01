@@ -87,14 +87,11 @@ jobs:
       with:
         # Disabling shallow clones is recommended for improving the relevancy of reporting
         fetch-depth: 0
-    # - name: Set up Node.js
-    #   uses: actions/setup-node@v4
-    #   with:
-    #     node-version: '18'
+    - name: Install jq
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y jq
 
-    # - name: Get Node.js path
-    #   id: node_path
-    #   run: echo "NODE_PATH=$(which node)" >> $GITHUB_ENV
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.1.0
       with:

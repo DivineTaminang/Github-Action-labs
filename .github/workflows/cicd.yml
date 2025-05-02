@@ -82,7 +82,7 @@ jobs:
       with:
         name: app-jar
         path: target/*.jar
-        
+
     - uses: actions/checkout@v4
       with:
         # Disabling shallow clones is recommended for improving the relevancy of reporting
@@ -110,8 +110,8 @@ jobs:
     runs-on: self-hosted
     needs: Build-project
     steps:
-    - name: Download artifact from build
-      uses: actions/upload-artifact@v4
+    - name: Download JAR artifacts from build
+      uses: actions/download-artifact@v4
       with:
         name: app-jar
         path: app
@@ -129,7 +129,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: divineking/app:latest
+          tags: divineking/bankapp:latest
 
         
 

@@ -82,12 +82,7 @@ jobs:
       with:
         name: app-jar
         path: target/*.jar
-
-
-  sonarqube-scan:
-    runs-on: self-hosted
-    needs: Build-project
-    steps:
+        
     - uses: actions/checkout@v4
       with:
         # Disabling shallow clones is recommended for improving the relevancy of reporting

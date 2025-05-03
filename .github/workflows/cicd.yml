@@ -118,13 +118,13 @@ jobs:
     needs: Build-project
     steps:
     - uses: actions/checkout@v4
-    - name: clean some space
-      run: |
-        docker system prune -af --volumes
-        sudo rm -rf ~/actions-runner/_work/_temp/*
-        sudo docker system prune -af
-        sudo rm -rf ~/actions-runner/_diag/*
-        # docker run --privileged --rm tonistiigi/binfmt --install all
+    # - name: clean some space
+    #   run: |
+    #     docker system prune -af --volumes
+    #     sudo rm -rf ~/actions-runner/_work/_temp/*
+    #     sudo docker system prune -af
+    #     sudo rm -rf ~/actions-runner/_diag/*
+    #     # docker run --privileged --rm tonistiigi/binfmt --install all
     - name: Download JAR artifacts from build
       uses: actions/download-artifact@v4
       with:

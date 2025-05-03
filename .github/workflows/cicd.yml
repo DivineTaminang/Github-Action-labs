@@ -128,10 +128,10 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
-          context: ./Github-Action-labs
+          context: ./Github-Action-labs/Github-Action-labs
           push: true
           tags: divineking/bankapp:latest
-          file: ./Github-Action-labs/Dockerfile
+          file: ./Github-Action-labs/Github-Action-labs/Dockerfile
 
           #
 

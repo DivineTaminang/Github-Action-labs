@@ -85,6 +85,16 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
+    - name: Clean SonarScanner directory
+      run: |
+        sudo apt Clean -y
+        sudo apt autoremove -y
+        sudo apt autoclean -y
+        rm -rf /home/runner/work/_temp/sonar-scanner-cli-6.2.1.4610-Linux-X64
+        sudo dpkg -l 'linux-image*' | grep '^ii'
+        sudo truncate -s 0 /var/log/*.log
+        sudo journalctl --vacuum-time=7d
+
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.1.0
       with:

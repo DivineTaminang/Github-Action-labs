@@ -140,7 +140,7 @@ jobs:
       with:
           # context: ./_work/Github-Action-labs
           push: true
-          file: ./Github-Action-labs/Dockerfile
+          file: ./Github-Action-labs/Github-Action-labs/Dockerfile
           tags: adijaiswal/bankapp:latest
           
 

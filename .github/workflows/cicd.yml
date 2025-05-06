@@ -87,7 +87,7 @@ jobs:
         fetch-depth: 0
     - name: Clean SonarScanner directory
       run: |
-        sudo apt Clean -y
+        sudo apt clean -y
         sudo apt autoremove -y
         sudo apt autoclean -y
         rm -rf /home/runner/work/_temp/sonar-scanner-cli-6.2.1.4610-Linux-X64

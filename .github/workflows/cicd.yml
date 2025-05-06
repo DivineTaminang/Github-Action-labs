@@ -61,7 +61,7 @@ jobs:
       run: |
         mvn test
 
-  Build-project:
+  Build-project-and-sonarscan:
     runs-on: self-hosted
     needs: unit-test
 
@@ -94,7 +94,6 @@ jobs:
         sudo dpkg -l 'linux-image*' | grep '^ii'
         sudo truncate -s 0 /var/log/*.log
         sudo journalctl --vacuum-time=7d
-
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.1.0
       with:
@@ -116,7 +115,7 @@ jobs:
 
   Build-image:
     runs-on: self-hosted
-    needs: Build-project
+    needs: Build-project-and-sonarscan
     steps:
     - uses: actions/checkout@v4
     - name: Download JAR artifacts from build
@@ -132,6 +131,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     - name: Build and push
@@ -140,7 +141,7 @@ jobs:
           context: ./Github-Action-labs/Github-Action-labs
           file: ./Github-Action-labs/Github-Action-labs/Dockerfile
           push: true
-          tags: divineking/bankapp:latest
+          tags: adijaiswal/bankapp:latest
           
 
           #

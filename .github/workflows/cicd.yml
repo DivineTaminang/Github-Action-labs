@@ -138,8 +138,8 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
-          context: ./_work/Github-Action-labs
-          file: ./_work/Github-Action-labs/Dockerfile
+          # context: ./_work/Github-Action-labs
+          file: ./Github-Action-labs/Dockerfile
           push: true
           tags: adijaiswal/bankapp:latest
           

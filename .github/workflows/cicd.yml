@@ -58,6 +58,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+        cache-dependency-path: 'sub-project/pom.xml'
     - name: Unit Test Cases
       run: |
         mvn test
@@ -74,6 +75,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+        cache-dependency-path: 'sub-project/pom.xml'
     # - name: clean some space
     #   run: |
     #     docker system prune -af --volumes
@@ -83,7 +85,8 @@ jobs:
     #     # docker run --privileged --rm tonistiigi/binfmt --install all
     - name: Build with Maven
       run: |
-        mvn package
+          mvn -B package --file pom.xml
+          # mvn package
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v4
       with:

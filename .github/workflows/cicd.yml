@@ -138,6 +138,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           context: ./Github-Action-labs/Github-Action-labs
+          file: ./Github-Action-labs/Github-Action-labs/Dockerfile
           push: true
           tags: divineking/bankapp:latest
           

@@ -141,7 +141,7 @@ jobs:
           context: "{{defaultContext}}:Github-Action-labs"
           push: true
           # file: ./Github-Action-labs/Github-Action-labs/Dockerfile
-          tags: adijaiswal/bankapp:latest
+          tags: DivineTaminang/bankapp:latest
           
 
           #

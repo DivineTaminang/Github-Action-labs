@@ -147,7 +147,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           context: .
-          file: ./Github-Action-labs/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: DivineTaminang/bankapp:latest
           

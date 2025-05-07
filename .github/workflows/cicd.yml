@@ -140,7 +140,7 @@ jobs:
       with:
           context: .
           push: true
-          dockerfile: ./Github-Action-labs/Github-Action-labs/Dockerfile
+          dockerfile: ./Dockerfile
           tags: DivineTaminang/bankapp:latest
           
 

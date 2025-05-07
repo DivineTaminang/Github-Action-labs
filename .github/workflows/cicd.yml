@@ -45,7 +45,7 @@ jobs:
     # - name: gitleaks scan.
     #   run: gitleaks detect source . -r gitleaks-report.json. 
 
-  Unit-test:
+  unit-test:
     runs-on: self-hosted
     needs: security-check
 
@@ -95,7 +95,7 @@ jobs:
         sudo truncate -s 0 /var/log/*.log
         sudo journalctl --vacuum-time=7d
     - name: SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v5.1.0
+      uses: SonarSource/sonarqube-scan-action@v5.0.0
       with:
         args: >
           -Dsonar.exclusions=**/*.html

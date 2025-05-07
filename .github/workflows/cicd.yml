@@ -146,7 +146,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
-          context: ./Github-Action-labs
+          context: .
           file: ./Github-Action-labs/Dockerfile
           push: true
           tags: DivineTaminang/bankapp:latest

@@ -24,7 +24,7 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 WORKDIR /usr/src/app
 
 # Copy the jar file into the container
-COPY ./Github-Action-labs/Github-Action-labs/app/*.jar app.jar
+COPY ./Github-Action-labs/app/*.jar app.jar
 
 # Expose the necessary port
 EXPOSE 8080

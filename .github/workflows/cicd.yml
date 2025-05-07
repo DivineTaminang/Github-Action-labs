@@ -43,7 +43,7 @@ jobs:
     ## - name: Gitleaks installation on self-hosted ubuntu server
     #   run: sudo apt install gitleaks -y
     # - name: gitleaks scan.
-    #   # run: gitleaks detect source . -r gitleaks-report.json. 
+    #   run: gitleaks detect source . -r gitleaks-report.json. 
 
   Unit-test:
     runs-on: self-hosted

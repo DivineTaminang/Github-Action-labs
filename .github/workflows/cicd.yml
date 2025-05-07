@@ -114,7 +114,7 @@ jobs:
         sudo journalctl --vacuum-time=7d
 
     # - name: Delete cache
-    #   run: gh cache delete sonar-scanner-cli-7.1.0.4889-Linux-X64 
+    # #  run: gh cache delete sonar-scanner-cli-7.1.0.4889-Linux-X64 
 
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.2.0

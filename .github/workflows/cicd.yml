@@ -89,6 +89,11 @@ jobs:
         fetch-depth: 0
     - name: Clean SonarScanner directory
       run: |
+        sudo apt update -y
+        docker system prune -af --volumes
+        sudo rm -rf ~/actions-runner/_work/_temp/*
+        sudo docker system prune -af
+        sudo rm -rf ~/actions-runner/_diag/*
         sudo apt clean -y
         sudo apt autoremove -y
         sudo apt autoclean -y

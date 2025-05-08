@@ -132,7 +132,7 @@ jobs:
           sonar-scanner-${{ runner.os }}-
 
     - name: SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v5.2.0
+      uses: SonarSource/sonarqube-scan-action@v5.1.0
       # uses: kitabisa/sonarqube-action@v1.2.0
       with:
         args: >

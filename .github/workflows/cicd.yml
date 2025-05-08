@@ -125,13 +125,13 @@ jobs:
     #   with:
     #     path: ~/.sonar/cache
     #     key: ${{ runner.os }}-sonar-${{ hashFiles('**/pom.xml') }}-v2
-    # - name: Cache SonarScanner
-    #   uses: actions/cache@v4
-    #   with:
-    #     path: ~/.sonar/cache
-    #     key: sonar-scanner-${{ runner.os }}-v1
-    #     restore-keys: |
-    #       sonar-scanner-${{ runner.os }}-
+    - name: Cache SonarScanner
+      uses: actions/cache@v4
+      with:
+        path: ~/.sonar/cache
+        key: sonar-scanner-${{ runner.os }}-v1
+        restore-keys: |
+          sonar-scanner-${{ runner.os }}-
 
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.2.0

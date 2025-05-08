@@ -184,6 +184,8 @@ jobs:
           file: ./GitHubActions-labs/GithubActions-labs/Dockerfile
           push: true
           tags: DivineTaminang/bankapp:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max  
           
 
           #

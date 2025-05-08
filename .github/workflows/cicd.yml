@@ -155,7 +155,7 @@ jobs:
     runs-on: self-hosted
     needs: Build-project-and-sonarscan
     steps:
-    # - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
     - name: Download JAR artifacts from build
       uses: actions/download-artifact@v4
       with:

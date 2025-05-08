@@ -115,16 +115,16 @@ jobs:
 
     # - name: Delete cache
     # #  run: gh cache delete sonar-scanner-cli-7.1.0.4889-Linux-X64 
-    # - name: Cache SonarQube scanner
-    #   uses: actions/cache@v4
-    #   with:
-    #     path: ~/.sonar/cache
-    #     key: sonar-scanner-cli-7.1.0.4889-Linux-X64
-    # - name: Cache SonarScanner
-    #   uses: actions/cache@v4
-    #   with:
-    #     path: ~/.sonar/cache
-    #     key: ${{ runner.os }}-sonar-${{ hashFiles('**/pom.xml') }}-v2
+    - name: Cache SonarQube scanner
+      uses: actions/cache@v4
+      with:
+        path: ~/.sonar/cache
+        key: sonar-scanner-cli-7.1.0.4889-Linux-X64
+    - name: Cache SonarScanner
+      uses: actions/cache@v4
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar-${{ hashFiles('**/pom.xml') }}-v2
     - name: Cache SonarScanner
       uses: actions/cache@v4
       with:

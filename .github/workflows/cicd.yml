@@ -50,17 +50,17 @@ jobs:
     needs: security-check
 
     steps:
-    # - name: Clean SonarScanner directory
-    #   run: |
-        # sudo apt update -y
-        # docker system prune -af
-        # docker system prune -af
-        # sudo rm -rf ~/actions-runner/_work/_temp/*
-        # sudo docker system prune -af --volumes
-        # sudo rm -rf ~/actions-runner/_diag/*
-        # sudo apt clean -y
-        # sudo apt autoremove -y
-        # sudo apt autoclean -y
+    - name: Clean SonarScanner directory
+      run: |
+        sudo apt update -y
+        docker system prune -af
+        docker system prune -af
+        sudo rm -rf ~/actions-runner/_work/_temp/*
+        sudo docker system prune -af --volumes
+        sudo rm -rf ~/actions-runner/_diag/*
+        sudo apt clean -y
+        sudo apt autoremove -y
+        sudo apt autoclean -y
     - uses: actions/checkout@v4
     - name: Set up JDK 17
       uses: actions/setup-java@v4
@@ -87,34 +87,32 @@ jobs:
     - name: Build with Maven
       run: |
           mvn package
-    # - name: 'Upload Artifact'
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: app-jar
-    #     path: target/*.jar
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-jar
+        path: target/*.jar
 
-    # - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
     - name: Checking out
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    # - name: Clean SonarScanner directory
-    #   run: |
-    #     sudo apt update -y
-    #     docker system prune -af --volumes
-    #     sudo rm -rf ~/actions-runner/_work/_temp/*
-    #     sudo docker system prune -af
-    #     sudo rm -rf ~/actions-runner/_diag/*
-    #     sudo apt clean -y
-    #     sudo apt autoremove -y
-    #     sudo apt autoclean -y
-    #     rm -rf /home/runner/work/_temp/sonar-scanner-cli-6.2.1.4610-Linux-X64
-    #     sudo dpkg -l 'linux-image*' | grep '^ii'
-    #     sudo truncate -s 0 /var/log/*.log
-    #     sudo journalctl --vacuum-time=7d
+    - name: Clean SonarScanner directory
+      run: |
+        sudo apt update -y
+        docker system prune -af --volumes
+        sudo rm -rf ~/actions-runner/_work/_temp/*
+        sudo docker system prune -af
+        sudo rm -rf ~/actions-runner/_diag/*
+        sudo apt clean -y
+        sudo apt autoremove -y
+        sudo apt autoclean -y
+        rm -rf /home/runner/work/_temp/sonar-scanner-cli-6.2.1.4610-Linux-X64
+        sudo dpkg -l 'linux-image*' | grep '^ii'
+        sudo truncate -s 0 /var/log/*.log
+        sudo journalctl --vacuum-time=7d
 
-    # - name: Delete cache
-    # #  run: gh cache delete sonar-scanner-cli-7.1.0.4889-Linux-X64 
     - name: Cache SonarQube scanner
       uses: actions/cache@v4
       with:
